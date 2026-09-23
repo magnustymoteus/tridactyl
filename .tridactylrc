@@ -208,3 +208,5 @@
 " 
 " " For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
 " " vim: set filetype=tridactyl
+" 0-based tab switching: 0 = first tab, -1 = last tab
+command tabz jsb -p (async () => { const tabs = (await browser.tabs.query({currentWindow: true})).sort((a, b) => a.index - b.index); const n = tabs.length; const i = ((Number(JS_ARG) % n) + n) % n; await browser.tabs.update(tabs[i].id, {active: true}) })()
